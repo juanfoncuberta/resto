@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/dishitemImage"
+        android:layout_width="@dimen/item_dish_image_size"
+        android:layout_height="@dimen/item_dish_image_size"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/paella"
+      />
+
+    <TextView
+        android:id="@+id/dishItemName"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/dishitemImage"
+        android:layout_marginLeft="10dp"
+        tools:text="@string/item_dish_name" />
+
+    <TextView
+        android:id="@+id/dishItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dishitemImage"
+        app:layout_constraintStart_toEndOf="@+id/dishitemImage"
+        app:layout_goneMarginLeft="15dp"
+        tools:text="@string/item_dish_price" />
+
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/add_button_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dishItemName" />
+
+    <Button
+        android:id="@+id/button_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/details_buton_text"
+        app:layout_constraintBottom_toBottomOf="@+id/dishItemPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+</android.support.constraint.ConstraintLayout>

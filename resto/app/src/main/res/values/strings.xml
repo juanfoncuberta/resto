@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">resto</string>
+    <string name="TABLE_NUMBER">table_number</string>
+    <string name="show_menu_button_text">Show menu</string>
+    <string name="dummyTableDetailTableText">Table number</string>
+    <string name="item_dish_name" >Paella</string>
+    <string name="item_dish_price">22€</string>
+    <string name="add_button_name">Add</string>
+    <string name="get_bill_button_text">Get Bill</string>
+    <string name="details_buton_text">details</string>
+</resources>
