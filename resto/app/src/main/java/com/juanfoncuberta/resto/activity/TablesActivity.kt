@@ -1,11 +1,13 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.LinearLayout
+import com.juanfoncuberta.resto.R
+import com.juanfoncuberta.resto.model.Table
+import com.juanfoncuberta.resto.model.Tables
+import com.juanfoncuberta.resto.adapter.TablesAdapter
 
 class TablesActivity : AppCompatActivity() {
 
@@ -19,9 +21,8 @@ class TablesActivity : AppCompatActivity() {
 
     }
 
-    val adapter:TablesAdapter by lazy{
-        val adapter = TablesAdapter{
-            item, position ->
+    val adapter: TablesAdapter by lazy{
+        val adapter = TablesAdapter { item, position ->
             showTable(item.number)
         }
         adapter

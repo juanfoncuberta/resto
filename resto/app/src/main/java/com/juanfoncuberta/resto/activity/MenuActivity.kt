@@ -1,4 +1,4 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.activity
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.juanfoncuberta.resto.*
+import com.juanfoncuberta.resto.adapter.MenuAdapter
+import com.juanfoncuberta.resto.model.Dish
+import com.juanfoncuberta.resto.model.Dishes
+import com.juanfoncuberta.resto.model.Tables
 
 class MenuActivity: AppCompatActivity() {
 
@@ -21,7 +26,7 @@ class MenuActivity: AppCompatActivity() {
            // intent.putExtra(MenuActivity.DISH_NAME, name
 
             tableNumber = table
-           intent.putExtra(MenuActivity.TABLE_NAME, tableNumber!!)
+           intent.putExtra(TABLE_NAME, tableNumber!!)
             return intent
         }
 
@@ -29,7 +34,7 @@ class MenuActivity: AppCompatActivity() {
         fun addButonClicked(name:Int){
             val currentDish = Dishes.getDish(name)
 
-            Tables.addDish(tableNumber!!,currentDish)
+            Tables.addDish(tableNumber!!, currentDish)
         }
     }
 
@@ -39,11 +44,10 @@ class MenuActivity: AppCompatActivity() {
         dishList.layoutManager = LinearLayoutManager(this)
         dishList
     }
-    val adapter:MenuAdapter by lazy{
-        val adapter = MenuAdapter{
-            item, position ->
+    val adapter: MenuAdapter by lazy{
+        val adapter = MenuAdapter { item, position ->
 
-           // showDish(item.name)
+            // showDish(item.name)
         }
         adapter
     }

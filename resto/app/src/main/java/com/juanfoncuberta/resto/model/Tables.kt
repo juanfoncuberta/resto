@@ -1,4 +1,4 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.model
 
 import android.util.Log
 
@@ -15,17 +15,17 @@ object Tables {
             createTable(it)
         }.toMutableList()
     }
-    private  fun createTable(number:Int):Table{
+    private  fun createTable(number:Int): Table {
         return Table(number = number)
     }
-    fun findTableById(number: Int):Table?{
+    fun findTableById(number: Int): Table?{
         return  tables.find{
             table ->
             table.number == number
         }
     }
 
-    fun addDish(tableId:Int,dish:Dish){
+    fun addDish(tableId:Int,dish: Dish){
 
         val table = tables.get(tableId)
         Log.v("tableTables",table.toString())

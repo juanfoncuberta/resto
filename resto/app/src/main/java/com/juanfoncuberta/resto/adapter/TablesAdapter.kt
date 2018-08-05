@@ -1,10 +1,12 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.juanfoncuberta.resto.R
+import com.juanfoncuberta.resto.model.Table
 
 class TablesAdapter:RecyclerView.Adapter<TablesAdapter.TablesViewHolder> {
 
@@ -13,11 +15,11 @@ class TablesAdapter:RecyclerView.Adapter<TablesAdapter.TablesViewHolder> {
         itemClickListener= null
     }*/
 
-    constructor(itemClickListener: ((Table,Int)->Unit)):super(){
+    constructor(itemClickListener: ((Table, Int)->Unit)):super(){
         this.itemClickListener = itemClickListener
     }
     private  val items: MutableList<Table> = mutableListOf()
-    private val itemClickListener:((Table,Int)->Unit)?
+    private val itemClickListener:((Table, Int)->Unit)?
 
 
 
@@ -40,7 +42,7 @@ class TablesAdapter:RecyclerView.Adapter<TablesAdapter.TablesViewHolder> {
         val item = items[position]
         holder.table = item   }
     inner class TablesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var table:Table? = null
+        var table: Table? = null
             set(value){
                 itemView.findViewById<TextView>(R.id.label_number).text = value?.toString()
                 field = value

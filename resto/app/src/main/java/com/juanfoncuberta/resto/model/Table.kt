@@ -1,4 +1,4 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.model
 
 import java.io.Serializable
 import java.util.ArrayList

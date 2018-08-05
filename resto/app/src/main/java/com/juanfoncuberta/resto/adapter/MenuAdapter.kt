@@ -1,4 +1,4 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -9,15 +9,19 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.juanfoncuberta.resto.activity.DishDetailActivity
+import com.juanfoncuberta.resto.activity.MenuActivity
+import com.juanfoncuberta.resto.model.Dish
+import com.juanfoncuberta.resto.R
 
 class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
 
 
-    constructor(itemClickListener: ((Dish,Int)->Unit)):super(){
+    constructor(itemClickListener: ((Dish, Int)->Unit)):super(){
         this.itemClickListener = itemClickListener
     }
     private val items: MutableList<Dish> = mutableListOf()
-    private val itemClickListener:((Dish,Int)->Unit)?
+    private val itemClickListener:((Dish, Int)->Unit)?
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DishesViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.item_list_dish,parent,false)
         return DishesViewHolder(view)
@@ -48,7 +52,7 @@ class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
 
         }
 
-        var dish:Dish? = null
+        var dish: Dish? = null
             set(value){
 
                 itemView.findViewById<TextView>(R.id.dishItemName).text = value?.name

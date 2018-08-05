@@ -1,10 +1,12 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.activity
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import com.juanfoncuberta.resto.model.Dish
+import com.juanfoncuberta.resto.model.Dishes
+import com.juanfoncuberta.resto.R
 import kotlinx.android.synthetic.main.activity_dish_detail.*
 
 class DishDetailActivity: AppCompatActivity() {

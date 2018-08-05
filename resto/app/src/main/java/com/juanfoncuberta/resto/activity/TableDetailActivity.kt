@@ -1,4 +1,4 @@
-package com.juanfoncuberta.resto
+package com.juanfoncuberta.resto.activity
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.Toast
+import com.juanfoncuberta.resto.adapter.MenuAdapter
+import com.juanfoncuberta.resto.R
+import com.juanfoncuberta.resto.model.Table
+import com.juanfoncuberta.resto.model.Tables
 
 import kotlinx.android.synthetic.main.activity_table_detail.*
 
@@ -32,8 +35,7 @@ class TableDetailActivity: AppCompatActivity(){
     }
 
     val adapter: MenuAdapter by lazy{
-        val adapter = MenuAdapter{
-            item,_ ->
+        val adapter = MenuAdapter { item, _ ->
             showDishDetail(item.name)
         }
         adapter
