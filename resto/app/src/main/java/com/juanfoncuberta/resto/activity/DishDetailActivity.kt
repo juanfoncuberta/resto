@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import com.juanfoncuberta.resto.model.Dish
 import com.juanfoncuberta.resto.model.Dishes
 import com.juanfoncuberta.resto.R
@@ -27,10 +28,16 @@ class DishDetailActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dish_detail)
-        val dishDish = intent.getIntExtra(DISH_ID,0)
-        dish = Dishes.getDish(dishDish)
+        val dishId = intent.getIntExtra(DISH_ID,0)
+        Log.d("TAG","Desde el oncreate te digo ${dishId}")
+        dish = Dishes.getDish(dishId)
+       /* if(dish != null){
+            labelDishName.text = dish?.name
+            labelDishVariants.text = dish?.detail
+            labelDishImage.setImageResource(dish)
+        }*/
 
-        dish?.let {
+       dish?.let {
             with(dish){
                 labelDishName.text = dish?.name
                 labelDishVariants.text = dish?.detail

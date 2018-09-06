@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import com.juanfoncuberta.resto.*
 import com.juanfoncuberta.resto.adapter.MenuAdapter
 import com.juanfoncuberta.resto.model.Dish
@@ -47,7 +48,7 @@ class MenuActivity: AppCompatActivity() {
     val adapter: MenuAdapter by lazy{
         val adapter = MenuAdapter { item, position ->
 
-            // showDish(item.name)
+            showDish(item.id)
         }
         adapter
     }
@@ -66,8 +67,10 @@ class MenuActivity: AppCompatActivity() {
 
 
 
-    fun showDish(name:String){
-           //  TODO
+    fun showDish(idDish:Int){
+           Log.d("TAG","Desde el showdish te digo ${idDish}")
+            val intent = DishDetailActivity.intent(this,idDish)
+            startActivity(intent)
 
     }
 }
