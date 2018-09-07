@@ -25,27 +25,26 @@ object Tables {
         }
     }
 
-    fun addDish(tableId:Int,dish: Dish){
+    fun addOrder(tableId:Int,dish: Dish,variant:String?){
 
         val table = tables.get(tableId)
-        Log.v("tableTables",table.toString())
-        Log.v("dishTables",dish.name)
-        table.dishes.add(dish)
+        val order = Order(dish,variant)
+        table.orders.add(order)
     }
 
     fun getNumDishesByTable(tableId:Int):Int{
         val table = tables.get(tableId)
-        return table.dishes.size
+        return table.orders.size
     }
 
     fun getStringNameDishes(tableId: Int): String? {
         val table = tables.get(tableId)
         var str: String? = null
-        table.dishes.forEach {
+        table.orders.forEach {
             if(str == null){
-                str = it.name
+                str = it.dish.name
             }else{
-                str = str + " " + it.name
+                str = str + " " + it.dish.name
             }
 
         }
@@ -55,8 +54,8 @@ object Tables {
     fun getBillByTable(tableId:Int):String{
         val table = tables.get(tableId)
         var amount: Float = 0f
-        table.dishes.forEach {
-            amount = amount + it.price
+        table.orders.forEach {
+            amount = amount + it.dish.price
         }
 
         return "The client has to pay: ${amount} €"

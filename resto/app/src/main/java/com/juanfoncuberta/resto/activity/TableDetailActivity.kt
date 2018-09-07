@@ -51,17 +51,20 @@ class TableDetailActivity: AppCompatActivity(){
         val id = intent.getIntExtra(TABLE_NUMBER,0)
         table = Tables.findTableById(id)
 
+        supportActionBar?.title = getString(R.string.table_resum_title, id.toString())
 
-        table?.let {
+
+       /* table?.let {
             with(table){
                 textLabelNumber.text = table.toString()
             }
-        }
+        }*/
         showMenuButton.setOnClickListener {
             showMenu()
         }
 
         getBillButton.setOnClickListener {
+            //TODO: Make alert
             val amountText = Tables.getBillByTable(table!!.number)
             Toast.makeText(this,amountText,Toast.LENGTH_LONG).show()
         }

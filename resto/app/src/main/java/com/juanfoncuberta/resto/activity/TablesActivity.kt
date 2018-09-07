@@ -16,10 +16,7 @@ class TablesActivity : AppCompatActivity() {
         tableList.layoutManager = LinearLayoutManager(this)
         tableList
     }
-    val dises by lazy {
-
-
-    }
+    val dishes by lazy { }
 
     val adapter: TablesAdapter by lazy{
         val adapter = TablesAdapter { item, position ->
@@ -42,7 +39,6 @@ class TablesActivity : AppCompatActivity() {
     fun showTable(tableNumber:Int)
     {
         val intent = TableDetailActivity.intent(this,tableNumber)
-       //
         startActivity(intent)
     }}
 
