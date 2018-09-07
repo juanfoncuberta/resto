@@ -73,7 +73,7 @@ class TableDetailActivity: AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
-        textLabelDishes.text = Tables.getStringNameDishes(table!!.number)
+        textLabelDishes.text =  Tables.getStringNameDishes(table!!.number)
 
 
     }

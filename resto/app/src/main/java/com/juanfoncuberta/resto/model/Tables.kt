@@ -40,16 +40,20 @@ object Tables {
     fun getStringNameDishes(tableId: Int): String? {
         val table = tables.get(tableId)
         var str: String? = null
+
         table.orders.forEach {
             if(str == null){
-                str = it.dish.name
+                str = it.getResume()
             }else{
-                str = str + " " + it.dish.name
+                str = str + " " + it.getResume()
             }
 
         }
         return  str
     }
+
+
+
 
     fun getBillByTable(tableId:Int):String{
         val table = tables.get(tableId)

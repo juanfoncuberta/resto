@@ -58,14 +58,6 @@ class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
                 itemView.findViewById<TextView>(R.id.dishItemName).text = value?.name
                 itemView.findViewById<TextView>(R.id.dishItemPrice).text = value?.priceToString()
                 itemView.findViewById<ImageView>(R.id.dishitemImage).setImageResource(value!!.image)
-                itemView.findViewById<Button>(R.id.button_detail).setOnClickListener {
-                    showDishDetail(value.id)
-                }
-               itemView.findViewById<Button>(R.id.button_add).id = value.id
-                itemView.findViewById<Button>(value.id).setOnClickListener {
-                    MenuActivity.addButonClicked(it.id)
-
-                }
 
 
                 field = value
@@ -78,7 +70,7 @@ class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
         init {
                 itemView.setOnClickListener{
                     dish?.let{
-                        itemClickListener?.invoke(dish as Dish,adapterPosition)
+                        itemClickListener?.invoke(it,adapterPosition)
                     }
                 }
             }

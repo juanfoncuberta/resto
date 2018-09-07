@@ -10,11 +10,6 @@ import com.juanfoncuberta.resto.model.Table
 
 class TablesAdapter:RecyclerView.Adapter<TablesAdapter.TablesViewHolder> {
 
-
-   /* constructor():super(){
-        itemClickListener= null
-    }*/
-
     constructor(itemClickListener: ((Table, Int)->Unit)):super(){
         this.itemClickListener = itemClickListener
     }
