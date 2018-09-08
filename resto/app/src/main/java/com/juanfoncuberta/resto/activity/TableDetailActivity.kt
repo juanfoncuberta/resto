@@ -3,24 +3,25 @@ package com.juanfoncuberta.resto.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Message
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Toast
-import com.juanfoncuberta.resto.adapter.MenuAdapter
+import android.util.Log
+import android.view.View
 import com.juanfoncuberta.resto.R
+import com.juanfoncuberta.resto.adapter.TableDetailAdapter
+import com.juanfoncuberta.resto.model.Order
 import com.juanfoncuberta.resto.model.Table
 import com.juanfoncuberta.resto.model.Tables
-
 import kotlinx.android.synthetic.main.activity_table_detail.*
+import kotlinx.android.synthetic.main.recycle_orders.*
 
 
 class TableDetailActivity: AppCompatActivity(){
 
-
-    var table: Table? = null
     companion object {
         val TABLE_NUMBER = "TABLE_NUMBER"
 
@@ -30,22 +31,14 @@ class TableDetailActivity: AppCompatActivity(){
             return intent
         }
     }
+    var table: Table? = null
+
     val dishList:RecyclerView by lazy {
-        val dishList:RecyclerView = findViewById(R.id.tableList)
+        val dishList:RecyclerView = findViewById(R.id.order_detail_table_detail)
         dishList.layoutManager = LinearLayoutManager(this)
         dishList
     }
 
-    val adapter: MenuAdapter by lazy{
-        val adapter = MenuAdapter { item, _ ->
-            showDishDetail(item.name)
-        }
-        adapter
-    }
-
-    private fun showDishDetail(name: String) {
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +46,10 @@ class TableDetailActivity: AppCompatActivity(){
         val id = intent.getIntExtra(TABLE_NUMBER,0)
         table = Tables.findTableById(id)
 
+
         supportActionBar?.title = getString(R.string.table_resum_title, id.toString())
+        order_detail_table_detail.layoutManager = GridLayoutManager(this,1)
+        order_detail_table_detail.itemAnimator = DefaultItemAnimator()
 
         showMenuButton.setOnClickListener {
             showMenu()
@@ -69,11 +65,20 @@ class TableDetailActivity: AppCompatActivity(){
 
     override fun onResume() {
         super.onResume()
-        textLabelDishes.text =  Tables.getStringNameDishes(table!!.number)
+        showOrders(Tables.getOrders(table!!.number))
+
 
 
     }
+    private fun showOrders(orders: List<Order>){
+        Log.d("TAG","SHOWORDERS")
+        val adapter = TableDetailAdapter(orders)
+        order_detail_table_detail.adapter = adapter
+
+    }
+
     private fun showMenu(){
+
         val intent = MenuActivity.intent(this,table!!.number)
 
         intent.putExtra(TABLE_NUMBER,table?.number)

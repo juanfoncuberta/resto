@@ -52,6 +52,11 @@ object Tables {
         return  str
     }
 
+    fun getOrders(tableId:Int): List<Order>{
+        val table = tables.get(tableId)
+        return table.orders
+    }
+
 
 
 

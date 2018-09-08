@@ -24,6 +24,12 @@
     app:layout_constraintVertical_bias="0.0"
     tools:text="es" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <include layout="@layout/recycle_orders" />
+    </FrameLayout>
     <Button
         android:id="@+id/showMenuButton"
         android:layout_width="wrap_content"
@@ -51,12 +57,5 @@
         app:layout_constraintTop_toBottomOf="@+id/textLabelDishes"
         app:layout_constraintVertical_bias="1.0" />
 
-    <!--<EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="104dp" />-->
+
 </android.support.constraint.ConstraintLayout>

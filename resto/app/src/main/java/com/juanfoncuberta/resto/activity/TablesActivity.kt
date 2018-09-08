@@ -12,7 +12,7 @@ import com.juanfoncuberta.resto.adapter.TablesAdapter
 class TablesActivity : AppCompatActivity() {
 
     val tableList:RecyclerView by lazy{
-        val tableList:RecyclerView = findViewById(R.id.tableList)
+        val tableList:RecyclerView = findViewById(R.id.table_list)
         tableList.layoutManager = LinearLayoutManager(this)
         tableList
     }
