@@ -15,12 +15,9 @@ object Dishes{
               Dish(1, "Salad", "Vegetables", R.drawable.salad, "Salad dressing to choice", 8f),
               Dish(1, "Salad", "Vegetables", R.drawable.salad, "Salad dressing to choice", 8f),*/
     )
-    /*val countDownLatch
-        get() = dishes.size
-*/
-    //TODO getDishById
-    fun getDish(index:Int) = dishes[index]
-   // fun toArray() = dishes.toTypedArray()
+
+    fun getDish(index:Int) = dishes.filter { it.id == index }.first()
+
 
 
 }

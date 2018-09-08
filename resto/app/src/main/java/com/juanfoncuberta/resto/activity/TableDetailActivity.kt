@@ -3,6 +3,8 @@ package com.juanfoncuberta.resto.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Message
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -53,20 +55,14 @@ class TableDetailActivity: AppCompatActivity(){
 
         supportActionBar?.title = getString(R.string.table_resum_title, id.toString())
 
-
-       /* table?.let {
-            with(table){
-                textLabelNumber.text = table.toString()
-            }
-        }*/
         showMenuButton.setOnClickListener {
             showMenu()
         }
 
         getBillButton.setOnClickListener {
-            //TODO: Make alert
-            val amountText = Tables.getBillByTable(table!!.number)
-            Toast.makeText(this,amountText,Toast.LENGTH_LONG).show()
+            val billAlertMessage = Tables.getBillByTable(table!!.number)
+            val title = getString(R.string.alert_bill_title, table!!.number.toString())
+            showAlert(title,billAlertMessage)
         }
 
     }
@@ -82,6 +78,15 @@ class TableDetailActivity: AppCompatActivity(){
 
         intent.putExtra(TABLE_NUMBER,table?.number)
         startActivity(intent)
+    }
+
+    private fun showAlert(title:String,message: String){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setMessage(message)
+        builder.setPositiveButton(R.string.ok_button){_, _ -> }
+        val alert = builder.create()
+        alert.show()
     }
 
 }

@@ -9,4 +9,6 @@
     <string name="get_bill_button_text">Get Bill</string>
     <string name="details_buton_text">details</string>
     <string name="table_resum_title">Table %s</string>
+    <string name="alert_bill_title">Bill for table %s</string>
+    <string name="ok_button">Ok</string>
 </resources>

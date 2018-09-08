@@ -24,7 +24,6 @@ class DishDetailActivity: AppCompatActivity() {
         }
 
     }
-    //TODO: Init dishId by lazy
     var dish: Dish? = null
     set(value){
         field = value
