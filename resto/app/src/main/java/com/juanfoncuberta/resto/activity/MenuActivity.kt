@@ -19,23 +19,16 @@ class MenuActivity: AppCompatActivity() {
     companion object {
         val TABLE_NAME = "TABLE_NAME"
         val TABLE_NUMBER = "TABLE_NUMBER"
-            var tableNumber: Int? = null
+        var tableNumber: Int? = null
 
         fun intent(context: Context, table:Int): Intent {
             val intent = Intent(context, MenuActivity::class.java)
-           // intent.putExtra(MenuActivity.DISH_NAME, name
-
             tableNumber = table
            intent.putExtra(TABLE_NAME, tableNumber!!)
             return intent
         }
        val dishes:MutableList<Dish> = Dishes.dishes as MutableList<Dish>
 
-        //TODO Delete buttons
-        fun addButonClicked(name:Int){
-            val currentDish = Dishes.getDish(name)
-            //Tables.addDish(tableNumber!!, currentDish)
-        }
     }
 
     val REQUEST_FOR_DISH = 1
@@ -54,7 +47,6 @@ class MenuActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-        //val dishes:MutableList<Dish> = Dishes.dishes as MutableList<Dish>
 
         tableNumber = intent.getIntExtra(TABLE_NUMBER,0)
 
@@ -82,15 +74,11 @@ class MenuActivity: AppCompatActivity() {
 
     fun addDish(dishId:Int, variants: String?){
         val dish = Dishes.getDish(dishId)
-        //Tables.addDish(tableNumber!!,dish)
         Tables.addOrder(tableNumber!!,dish,variants)
     }
-
-
 
     fun showDish(idDish:Int){
             val intent = DishDetailActivity.intent(this,idDish)
             startActivityForResult(intent,REQUEST_FOR_DISH)
-
     }
 }

@@ -9,28 +9,33 @@
     >
 
     <ImageView
-        android:id="@+id/dishitemImage"
+        android:id="@+id/dish_item_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_dish_image_size"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/paella"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="10dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/paella" />
 
     <TextView
-        android:id="@+id/dishItemName"
+        android:id="@+id/dish_item_name"
         android:layout_width="wrap_content"
         android:layout_height="23dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="@+id/dishitemImage"
-        app:layout_constraintTop_toTopOf="@+id/dishitemImage"
+        app:layout_constraintStart_toStartOf="@+id/dish_item_image"
+        app:layout_constraintTop_toTopOf="@+id/dish_item_image"
         tools:text="@string/item_dish_name" />
 
     <TextView
-        android:id="@+id/dishItemPrice"
+        android:id="@+id/dish_item_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -38,9 +43,57 @@
         android:layout_marginStart="8dp"
         android:text="TextView"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dishitemImage"
-        app:layout_constraintStart_toStartOf="@+id/dishitemImage"
+        app:layout_constraintBottom_toBottomOf="@+id/dish_item_image"
+        app:layout_constraintStart_toStartOf="@+id/dish_item_image"
         app:layout_goneMarginLeft="15dp"
         tools:text="@string/item_dish_price" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_allergens"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/dish_item_image"
+        app:layout_constraintEnd_toEndOf="@+id/dish_item_image">
+
+        <ImageView
+            android:id="@+id/allergen_peaunut_icon"
+            android:layout_width="@dimen/allergen_icon_size"
+            android:layout_height="@dimen/allergen_icon_size"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/allergen_icon_margin_left"
+            android:src="@drawable/allergen_peanut"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/allergen_dairy_icon"
+            android:layout_width="@dimen/allergen_icon_size"
+            android:layout_height="@dimen/allergen_icon_size"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/allergen_icon_margin_left"
+            android:src="@drawable/allergen_dairy"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/allergen_seafood_icon"
+            android:layout_width="@dimen/allergen_icon_size"
+            android:layout_height="@dimen/allergen_icon_size"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/allergen_icon_margin_left"
+            android:src="@drawable/allergen_seafood"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/allergen_glutten_icon"
+            android:layout_width="@dimen/allergen_icon_size"
+            android:layout_height="@dimen/allergen_icon_size"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/allergen_icon_margin_left"
+            android:src="@drawable/allergen_glutten"
+            android:visibility="gone" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

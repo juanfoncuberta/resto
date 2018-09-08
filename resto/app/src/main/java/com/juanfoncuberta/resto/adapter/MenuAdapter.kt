@@ -2,17 +2,17 @@ package com.juanfoncuberta.resto.adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.juanfoncuberta.resto.activity.DishDetailActivity
-import com.juanfoncuberta.resto.activity.MenuActivity
 import com.juanfoncuberta.resto.model.Dish
 import com.juanfoncuberta.resto.R
+import com.juanfoncuberta.resto.model.Allergens
 
 class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
 
@@ -44,36 +44,39 @@ class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
     override fun onBindViewHolder(holder: DishesViewHolder, position: Int) {
         val item = items[position]
         holder.dish = item
+        holder.bindAllergens(item.allergens)
+
     }
 
-    inner class DishesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView), View.OnClickListener{
-        override fun onClick(v: View?) {
+    inner class DishesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val dishItemName =  itemView.findViewById<TextView>(R.id.dish_item_name)
+        val dishItemPrice =  itemView.findViewById<TextView>(R.id.dish_item_price)
+        val dishItemImage = itemView.findViewById<ImageView>(R.id.dish_item_image)
 
-
-        }
 
         var dish: Dish? = null
             set(value){
-
-                itemView.findViewById<TextView>(R.id.dishItemName).text = value?.name
-                itemView.findViewById<TextView>(R.id.dishItemPrice).text = value?.priceToString()
-                itemView.findViewById<ImageView>(R.id.dishitemImage).setImageResource(value!!.image)
-
-
                 field = value
+               dishItemName.text = value?.name
+                dishItemPrice.text = value?.priceToString()
+                dishItemImage.setImageResource(value!!.image)
+
             }
-
-        private fun finish() {
-            finish()
-        }
-
         init {
-                itemView.setOnClickListener{
-                    dish?.let{
-                        itemClickListener?.invoke(it,adapterPosition)
-                    }
+            itemView.setOnClickListener{
+                dish?.let{
+                    itemClickListener?.invoke(it,adapterPosition)
                 }
             }
+        }
+        fun bindAllergens(allergens: List<Allergens>){
+                allergens.map {
+                    itemView.findViewById<ImageView>(it.allergenId).visibility = View.VISIBLE
+                    }
+        }
+
+
+
 
     }
 }

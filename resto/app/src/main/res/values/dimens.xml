@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="item_dish_image_size">100dp</dimen>
+    <dimen name="allergen_icon_size">25dp</dimen>
+    <dimen name="allergen_icon_margin_left">8dp</dimen>
 </resources>
