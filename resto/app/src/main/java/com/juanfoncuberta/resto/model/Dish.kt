@@ -15,7 +15,7 @@ enum class Allergens(val allergenId:Int){
 
 data class Dish(var id:Int ,
                 var name:String,
-                var allergens: List<Allergens> = listOf(),
+                var allergens: List<Allergens>? = listOf(),
                 var image: Int,
                 var detail:String,
                 var price: Float): Serializable {

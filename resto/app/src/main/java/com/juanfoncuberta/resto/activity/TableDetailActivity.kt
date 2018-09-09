@@ -9,8 +9,6 @@ import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import android.view.View
 import com.juanfoncuberta.resto.R
 import com.juanfoncuberta.resto.adapter.TableDetailAdapter
 import com.juanfoncuberta.resto.model.Order
@@ -71,7 +69,6 @@ class TableDetailActivity: AppCompatActivity(){
 
     }
     private fun showOrders(orders: List<Order>){
-        Log.d("TAG","SHOWORDERS")
         val adapter = TableDetailAdapter(orders)
         order_detail_table_detail.adapter = adapter
 

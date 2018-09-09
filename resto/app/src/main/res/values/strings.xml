@@ -13,4 +13,6 @@
     <string name="ok_button">Ok</string>
     <string name="variants_text_table_detail">Variants: %d</string>
     <string name="none_text">None</string>
+    <string name="menu_title">Menu</string>
+    <string name="dish_title">%s - %s</string>
 </resources>

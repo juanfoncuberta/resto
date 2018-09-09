@@ -69,9 +69,10 @@ class MenuAdapter:  RecyclerView.Adapter<MenuAdapter.DishesViewHolder> {
                 }
             }
         }
-        fun bindAllergens(allergens: List<Allergens>){
-                allergens.map {
-                    itemView.findViewById<ImageView>(it.allergenId).visibility = View.VISIBLE
+        fun bindAllergens(allergens: List<Allergens>?){
+
+                allergens?.map {
+                    itemView.findViewById<ImageView>(it?.allergenId).visibility = View.VISIBLE
                     }
         }
 

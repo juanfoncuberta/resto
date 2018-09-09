@@ -40,7 +40,7 @@ class DishDetailActivity: AppCompatActivity() {
         setContentView(R.layout.activity_dish_detail)
         val dishId = intent.getIntExtra(DISH_ID,0)
         dish = Dishes.getDish(dishId)
-
+        supportActionBar?.title = getString(R.string.dish_title, dish?.name,dish?.priceToString())
         button_dish_ok.setOnClickListener {
             val returnIntent = Intent()
             returnIntent.putExtra(DISH_ID,dishId)

@@ -49,7 +49,7 @@ class MenuActivity: AppCompatActivity() {
         setContentView(R.layout.activity_menu)
 
         tableNumber = intent.getIntExtra(TABLE_NUMBER,0)
-
+        supportActionBar?.title = getString(R.string.menu_title)
         adapter.setDishes(dishes)
         dishList.layoutManager = LinearLayoutManager(this)
         dishList.adapter = adapter

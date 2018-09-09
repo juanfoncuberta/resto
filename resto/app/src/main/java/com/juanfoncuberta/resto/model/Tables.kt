@@ -32,33 +32,7 @@ object Tables {
         table.orders.add(order)
     }
 
-    fun getNumDishesByTable(tableId:Int):Int{
-        val table = tables.get(tableId)
-        return table.orders.size
-    }
-
-    fun getStringNameDishes(tableId: Int): String? {
-        val table = tables.get(tableId)
-        var str: String? = null
-
-        table.orders.forEach {
-            if(str == null){
-                str = it.getResume()
-            }else{
-                str = str + " " + it.getResume()
-            }
-
-        }
-        return  str
-    }
-
-    fun getOrders(tableId:Int): List<Order>{
-        val table = tables.get(tableId)
-        return table.orders
-    }
-
-
-
+    fun getOrders(tableId:Int): List<Order> = tables.get(tableId).orders
 
     fun getBillByTable(tableId:Int):String{
         val table = tables.get(tableId)

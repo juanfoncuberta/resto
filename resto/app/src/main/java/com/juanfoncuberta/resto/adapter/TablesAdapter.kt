@@ -16,8 +16,6 @@ class TablesAdapter:RecyclerView.Adapter<TablesAdapter.TablesViewHolder> {
     private  val items: MutableList<Table> = mutableListOf()
     private val itemClickListener:((Table, Int)->Unit)?
 
-
-
     override fun getItemCount(): Int {
         return items.size
     }

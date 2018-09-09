@@ -16,7 +16,6 @@ class TablesActivity : AppCompatActivity() {
         tableList.layoutManager = LinearLayoutManager(this)
         tableList
     }
-    val dishes by lazy { }
 
     val adapter: TablesAdapter by lazy{
         val adapter = TablesAdapter { item, position ->

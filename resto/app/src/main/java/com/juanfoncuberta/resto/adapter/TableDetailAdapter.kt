@@ -1,6 +1,5 @@
 package com.juanfoncuberta.resto.adapter
 
-import android.provider.Settings.Global.getString
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import com.juanfoncuberta.resto.model.Order
 class TableDetailAdapter(val orders: List<Order>):RecyclerView.Adapter<TableDetailAdapter.TableDetailViewHolder>() {
 
 
-   var onClickListener: View.OnClickListener? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TableDetailViewHolder {
@@ -30,7 +28,6 @@ class TableDetailAdapter(val orders: List<Order>):RecyclerView.Adapter<TableDeta
 
 
     inner class TableDetailViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
 
         fun bindOrder(order:Order){
             itemView.findViewById<TextView>(R.id.dish_name_table_detail).text = order.dish.name
